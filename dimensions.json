@@ -1,0 +1,68 @@
+{
+  "units": "metres",
+  "source": "khalil hamadaPLAN-Model (1).pdf + ALEX KITCHEN.pdf + video",
+  "confirmed": {
+    "northWidth": 2.21,
+    "length": 2.95,
+    "columnWidth": 0.2,
+    "columnLength": 0.7,
+    "windowWidth": 0.71,
+    "cookerBay": 0.9,
+    "sinkUnit": 0.75,
+    "dishwasherBay": 0.65,
+    "fridgeBay": 0.8
+  },
+  "provisional": {
+    "ceiling": 2.47,
+    "ceilingSource": "bedroom measurement supplied by user; kitchen unconfirmed",
+    "worktopHeight": 0.89,
+    "upperBottom": 1.5,
+    "upperTop": 2.37,
+    "windowSill": 1.45,
+    "windowHeight": 0.75,
+    "windowSource": "Higher opening inferred from site photo; vertical dimensions unmeasured",
+    "mosaicPitch": 0.03,
+    "hoodEnclosure": "Visual option only; wall-mounted hood enclosure approval and clearances outstanding",
+    "drawerLocation": "760mm window run under appliance tower",
+    "applianceTower": "Stepped proposal: 500mm upper spanning x0.80-1.30; 760mm open counter below; microwave ventilation NOT validated"
+  },
+  "appliances": {
+    "source": "User supplied dimensions screenshot",
+    "fridge": {
+      "width": 0.75,
+      "height": 1.86,
+      "depth": 0.84,
+      "hinge": "Right when facing fridge; handle left",
+      "wallGap": 0.025,
+      "doorSwing": "Illustrative pivot; collision with west wall near full opening; manufacturer clearance pending"
+    },
+    "dishwasher": {
+      "width": 0.6,
+      "height": 0.845,
+      "depth": 0.6
+    },
+    "range": {
+      "width": 0.899,
+      "heightMin": 0.884,
+      "heightMax": 0.929,
+      "depth": 0.607
+    },
+    "hood": {
+      "width": 0.898,
+      "depth": 0.47
+    },
+    "washingMachine": {
+      "width": 0.6,
+      "height": 0.85,
+      "depth": 0.565,
+      "placement": "Outside kitchen, confirmed by user"
+    },
+    "microwave": {
+      "width": 0.544,
+      "height": 0.308,
+      "depth": 0.458,
+      "placement": "Provisional countertop beside fridge, confirmed included by user"
+    }
+  },
+  "status": "Design visualization; detailed joinery reconstructed, not surveyed or fabrication-ready"
+}
