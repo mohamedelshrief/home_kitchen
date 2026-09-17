@@ -24,7 +24,9 @@
     "mosaicPitch": 0.03,
     "hoodEnclosure": "Visual option only; wall-mounted hood enclosure approval and clearances outstanding",
     "drawerLocation": "760mm window run under appliance tower",
-    "applianceTower": "Stepped proposal: 500mm upper spanning x0.80-1.30; 760mm open counter below; microwave ventilation NOT validated"
+    "applianceTower": "Stepped proposal: 500mm upper spanning x0.80-1.30; 760mm open counter below; microwave ventilation NOT validated",
+    "airConditioner": "Trial 800 x 270 x 210mm above window. Current assumed geometry causes 45mm horizontal overlap with adjacent upper storage and 10mm vertical overlap with window; not installable without measured redesign.",
+    "upperCorner": "290mm connector closes the gap between north uppers and the glazed cabinet left of cooker"
   },
   "appliances": {
     "source": "User supplied dimensions screenshot",

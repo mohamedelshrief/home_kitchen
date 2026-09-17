@@ -1,7 +1,7 @@
 import * as THREE from './three.mjs';
 export function buildKitchen(){
  const root=new THREE.Group();root.name='My home kitchen - personal design - revision 2';
- const groups={};for(const name of ['base','upper','north','east','south','west','floor','detail']){groups[name]=new THREE.Group();groups[name].name=name;root.add(groups[name]);}
+ const groups={};for(const name of ['base','upper','ac','north','east','south','west','floor','detail']){groups[name]=new THREE.Group();groups[name].name=name;root.add(groups[name]);}
  const material=(name,color,roughness=.48,metalness=0)=>{let m=new THREE.MeshStandardMaterial({color,roughness,metalness});m.name=name;return m;};
  const M={blue:material('Baby blue satin lacquer','#a6bfd3'),beige:material('Warm ivory beige satin','#e5dbca'),edge:material('Blue inset shadows','#829eb5'),ivoryEdge:material('Ivory moulding shadow','#c9bcaa'),stone:material('Warm white quartz','#eee9df',.28),wall:material('Warm plaster','#e9e5dc',.85),tile:material('Ivory ceramic','#e7e3d8',.38),pattern:material('Muted blue tile motif','#9eafb2',.6),grout:material('Warm grey grout','#c4c4bb',.9),steel:material('Brushed stainless steel','#aeb5b8',.3,.55),black:material('Graphite appliances','#20282c',.32,.18),glass:material('Smoked glass','#526269',.13,.45),wood:material('Oak cabinet interiors','#cbb28b',.7),silver:material('Satin nickel hardware','#c5c9c7',.23,.65),leaf:material('Sage foliage','#667b56',.8),soil:material('Soil','#423b32',.9),light:material('Warm LED diffuser','#fff0cc',.3)};
  M.mosaicBlue=material('Pale blue glass mosaic','#bfdde5',.15,.20);M.mosaicIce=material('Frosted ice glass mosaic','#e0e9ed',.22,.12);M.mosaicSilver=material('Pearl silver glass mosaic','#cdd1dc',.13,.36);
@@ -49,6 +49,13 @@ export function buildKitchen(){
  box(win,'Daylight glazing',0,sill+windowHeight/2,0,.70,windowHeight,.012,M.light);
  frame(win,0,sill+windowHeight/2,.021,.70,windowHeight,M.silver);box(win,'Window mullion',0,sill+windowHeight/2,.035,.022,windowHeight,.022,M.silver);
  box(win,'Stone sill',0,sill-.013,.08,.79,.027,.18,M.stone,.006);
+ // Trial only: nominal 800mm-wide 1.5hp split AC above the unmeasured window.
+ // With the present assumptions it overlaps the window vertically by 10mm and the adjacent upper by 45mm.
+ let ac=group(groups.ac,'Trial 1.5hp AC above window - 800 x 270 x 210',1.655,2.885,Math.PI);
+ box(ac,'AC indoor unit',0,2.325,0,.80,.27,.21,M.wall,.025);
+ box(ac,'AC front fascia',0,2.35,.112,.75,.17,.018,M.tile,.018);
+ box(ac,'AC lower outlet',0,2.205,.095,.67,.035,.032,M.black,.006);
+ for(let k=0;k<9;k++)box(ac,'AC outlet vane',-.29+k*.073,2.205,.116,.055,.006,.006,M.silver,.001);
  // Small glass mosaic squares inspired by the user's sample, nominal 30mm pitch.
  function tiles(parent,x,z,length,rot=0){let g=group(parent,'Ice blue and silver glass mosaic',x,z,rot);let pitch=.03,high=parent===groups.east?1.75:1.50;
  box(g,'Mosaic grout backing',length/2,(.89+high)/2,-.004,length,high-.89,.009,M.grout);
@@ -93,6 +100,7 @@ export function buildKitchen(){
  // Upper units follow the submitted layout: solid sink run and glass either side of hood.
  upper('Sink uppers',.70,.18,1.40,.36,0,3);
  upper('Upper north corner',1.79,.18,.78,.36,0,2);
+ upper('Closed corner connector left of cooker',2.02,.505,.29,.36,-Math.PI/2,1,false);
  upper('Left glazed hood cabinet',2.02,.915,.53,.36,-Math.PI/2,1,true);
  upper('Right glazed hood cabinet',1.83,2.365,.53,.36,-Math.PI/2,1,true);
  // Stainless pyramid canopy. Decorative removable cover is a VISUAL OPTION only,
@@ -142,6 +150,6 @@ export function buildKitchen(){
  plant(groups.detail,1.90,.89,.73);
  let board=box(groups.detail,'Oak chopping board',1.85,1.06,.14,.25,.34,.027,M.wood,.008);board.rotation.y=-.12;
  let kettle=group(groups.detail,'Kettle',1.78,2.73);cyl(kettle,0,.90,0,.087,.028,M.silver);cyl(kettle,0,1.015,0,.082,.20,M.stone,.062);cyl(kettle,0,1.125,0,.063,.019,M.silver);tube(kettle,[[.063,.94,0],[.14,.96,0],[.14,1.11,0],[.05,1.11,0]],.012,M.silver,'Kettle handle');
- root.userData={units:'metres',source:'khalil hamadaPLAN-Model (1).pdf + ALEX KITCHEN.pdf + video',confirmed:{northWidth:2.21,length:2.95,columnWidth:.20,columnLength:.70,windowWidth:.71,cookerBay:.90,sinkUnit:.75,dishwasherBay:.65,fridgeBay:.80},provisional:{ceiling:2.47,ceilingSource:"bedroom measurement supplied by user; kitchen unconfirmed",worktopHeight:.89,upperBottom:1.50,upperTop:2.37,windowSill:1.45,windowHeight:.75,windowSource:"Higher opening inferred from site photo; vertical dimensions unmeasured",mosaicPitch:.03,hoodEnclosure:"Visual option only; wall-mounted hood enclosure approval and clearances outstanding",drawerLocation:"760mm window run under appliance tower",applianceTower:"Stepped proposal: 500mm upper spanning x0.80-1.30; 760mm open counter below; microwave ventilation NOT validated"},appliances:{source:'User supplied dimensions screenshot',fridge:{width:.75,height:1.86,depth:.84,hinge:'Right when facing fridge; handle left',wallGap:.025,doorSwing:'Illustrative pivot; collision with west wall near full opening; manufacturer clearance pending'},dishwasher:{width:.60,height:.845,depth:.60},range:{width:.899,heightMin:.884,heightMax:.929,depth:.607},hood:{width:.898,depth:.47},washingMachine:{width:.60,height:.85,depth:.565,placement:'Outside kitchen, confirmed by user'},microwave:{width:.544,height:.308,depth:.458,placement:'Provisional countertop beside fridge, confirmed included by user'}},status:'Design visualization; detailed joinery reconstructed, not surveyed or fabrication-ready'};
+ root.userData={units:'metres',source:'khalil hamadaPLAN-Model (1).pdf + ALEX KITCHEN.pdf + video',confirmed:{northWidth:2.21,length:2.95,columnWidth:.20,columnLength:.70,windowWidth:.71,cookerBay:.90,sinkUnit:.75,dishwasherBay:.65,fridgeBay:.80},provisional:{ceiling:2.47,ceilingSource:"bedroom measurement supplied by user; kitchen unconfirmed",worktopHeight:.89,upperBottom:1.50,upperTop:2.37,windowSill:1.45,windowHeight:.75,windowSource:"Higher opening inferred from site photo; vertical dimensions unmeasured",mosaicPitch:.03,hoodEnclosure:"Visual option only; wall-mounted hood enclosure approval and clearances outstanding",drawerLocation:"760mm window run under appliance tower",applianceTower:"Stepped proposal: 500mm upper spanning x0.80-1.30; 760mm open counter below; microwave ventilation NOT validated",airConditioner:"Trial 800 x 270 x 210mm above window. Current assumed geometry causes 45mm horizontal overlap with adjacent upper storage and 10mm vertical overlap with window; not installable without measured redesign.",upperCorner:"290mm connector closes the gap between north uppers and the glazed cabinet left of cooker"},appliances:{source:'User supplied dimensions screenshot',fridge:{width:.75,height:1.86,depth:.84,hinge:'Right when facing fridge; handle left',wallGap:.025,doorSwing:'Illustrative pivot; collision with west wall near full opening; manufacturer clearance pending'},dishwasher:{width:.60,height:.845,depth:.60},range:{width:.899,heightMin:.884,heightMax:.929,depth:.607},hood:{width:.898,depth:.47},washingMachine:{width:.60,height:.85,depth:.565,placement:'Outside kitchen, confirmed by user'},microwave:{width:.544,height:.308,depth:.458,placement:'Provisional countertop beside fridge, confirmed included by user'}},status:'Design visualization; detailed joinery reconstructed, not surveyed or fabrication-ready'};
  return {root,groups,materials:M,doorPivot,doorHome};
 }
