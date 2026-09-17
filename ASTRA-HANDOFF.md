@@ -1,203 +1,127 @@
-# مرجع استكمال تصميم المطبخ مع Astra
+# Kitchen Design Coordination Brief
 
-> هذا الملف هو المرجع الأساسي للاستكمال. اقرأه أولًا ثم افحص الملفات الحالية. لا تستنتج المقاسات من الصور الواقعية المولدة، ولا تعيد بناء المشروع من الصفر.
+## Purpose
 
-## 1. الهدف
+Continue the existing compact kitchen 3D coordination model. Preserve the approved layout and confirmed dimensions, then develop presentation-quality renders from the same geometry. This is a private design review package, with neutral project naming and no company or personal branding.
 
-استكمال نموذج 3D لمطبخ شقة محمد مع الحفاظ على التقسيمة الأصلية المرسلة ومقاسات البلان والأجهزة، ثم تحسينه بصريًا بأسلوب نيو كلاسيك: وحدات سفلية بيبي بلو، وحدات علوية بيج/أوف وايت، حليات وأقواس، زجاج مخدد، إكسسوارات فضي، ورخامة فاتحة. المطلوب في النهاية نموذج مضبوط للمراجعة وفيديو/صور واقعية، وليس مخطط تصنيع قبل رفع المقاسات الناقصة من الموقع.
+The package is not a fabrication drawing. Record every unverified value as an assumption and do not present it as site-confirmed.
 
-المشروع شخصي: العنوان المستخدم هو **«تصميمي لمطبخ بيتي»**. لا تستخدم اسم «مطبخ محمد» كبراند ولا تنسب التصميم إلى شركة. اختيارات الخامات والتعديلات تخص صاحب المطبخ، مع اعتبار التصميم الأصلي مرجعًا للتقسيمة.
+## Reference priority
 
-## 2. ترتيب أولوية المصادر
+1. `dimensions-and-assumptions.md` and the appliance schedule.
+2. Apartment plan: `/home/muhamed/sha2a/khalil hamadaPLAN-Model (1).pdf`.
+3. Original layout: `/home/muhamed/sha2a/matba5/ALEX KITCHEN.pdf` and `/home/muhamed/sha2a/matba5/20260825_025617.mp4`.
+4. Existing-site photograph for window context only.
+5. Image references for materials and styling only.
 
-عند وجود تعارض، استخدم الترتيب الآتي:
+Do not use AI-generated images or photographic perspective to infer room dimensions, wall positions or appliance locations.
 
-1. المقاسات الرقمية المؤكدة في هذا الملف وجدول الأجهزة.
-2. البلان الأصلي: `/home/muhamed/sha2a/khalil hamadaPLAN-Model (1).pdf`.
-3. تقسيمة التصميم الأصلي: `/home/muhamed/sha2a/matba5/ALEX KITCHEN.pdf` والفيديو `/home/muhamed/sha2a/matba5/20260825_025617.mp4`.
-4. صورة الموقع الحقيقية للشباك: `/tmp/codex-clipboard-444a1015-4e4c-4b1b-b66e-6e7b00761d6b.png`.
-5. صور الستايل والخامات فقط، وليست مرجعًا للتقسيمة أو المقاسات:
-   - `/home/muhamed/sha2a/matba5/6a9c65c7-e230-4103-8078-82acb8205efa.jpeg`
-   - `/home/muhamed/sha2a/matba5/814b2f82-92fe-478a-b024-b9bafaba57c2.jpeg`
-   - الموزاييك: `/tmp/codex-clipboard-8fcb9119-b734-4c10-a98d-4918e4489776.png`
-   - الشفاط: `/tmp/codex-clipboard-dc933e52-78d9-4b4b-a941-7b5f35f02ec2.png`
+## Project files
 
-الصور التي أنتجها الذكاء الاصطناعي **تصورات خامات وإضاءة فقط**. لا تستخدمها لإعادة تحديد الجدران أو مواقع الأجهزة.
+- `scene.mjs`: current parametric 3D geometry; modify this file rather than rebuilding the project.
+- `viewer.mjs`: cameras, controls, dimensions and refrigerator-door interaction.
+- `index.html`: viewer interface.
+- `alex-kitchen-offline.html`: self-contained viewer.
+- `alex-kitchen.glb`: GLB export in metres.
+- `dimensions.json`: current machine-readable model data.
+- `dimensions-and-assumptions.md`: engineering notes and verified/assumed values.
+- `realistic-fridge-corner-v4.png`: presentation reference only; do not measure from it.
 
-## 3. ملفات العمل الحالية
+## Coordinate system
 
-مجلد العمل:
+- Unit: metres.
+- `x = 0..2.21`: room width, west at x = 0 and east at x = 2.21.
+- `z = 0..2.95`: north/sink wall at z = 0 and south/window wall at z = 2.95.
+- `y`: height.
+- The west wall contains the entry opening and is partially omitted from selected views to keep the interior visible.
 
-`/home/muhamed/.codex/visualizations/2026/09/15/01a0a3f1-dc92-75e2-89a0-18ac2ff02394/kitchen-v2`
+## Confirmed geometry
 
-- `scene.mjs`: مصدر هندسة المجسم الحالي؛ عدّله بدل إعادة البناء.
-- `viewer.mjs`: الكاميرات والتفاعل وإظهار المقاسات وفتح باب التلاجة.
-- `index.html`: واجهة العارض.
-- `alex-kitchen-offline.html`: عارض مستقل يعمل دون إنترنت.
-- `alex-kitchen.glb`: تصدير GLB بوحدة المتر.
-- `dimensions.json`: بيانات المقاسات الحالية.
-- `dimensions-and-assumptions.md`: ملاحظات النسخة السابقة؛ عند التعارض اتبع هذا الملف.
-- `realistic-fridge-corner-v4.png`: أقرب تصور واقعي لركنة التلاجة، لكنه ليس مرجع مقاسات.
-- `alex-kitchen-package.zip`: حزمة التسليم الحالية.
+| Item | Dimension |
+| --- | ---: |
+| Sink-wall width | 221 cm |
+| Overall room length | 295 cm |
+| Window-wall width | 201 cm |
+| Corner column / projection | 20 × 70 cm |
+| Window clear width | 71 cm |
+| Dishwasher recess | 65 cm |
+| Sink base | 75 cm |
+| Cooker recess | 90 cm |
+| Refrigerator recess | 80 cm |
 
-العارض التفاعلي الحالي يحتوي على زوايا: نظرة عامة، الحوض، البوتاجاز، التلاجة والشباك، والمسقط. يوجد زر لفتح باب التلاجة 90 درجة وإظهار مشكلة الخلوص.
+## Appliance schedule
 
-## 4. نظام الإحداثيات في المجسم
+| Appliance | Model | Dimension (W × H × D) |
+| --- | --- | --- |
+| Refrigerator | Bosch KGN76CI3E8 | 75 × 186 × 84 cm |
+| Cooker | Bosch HGP3I8W50S | 89.9 × 88.4–92.9 × 60.7 cm |
+| Dishwasher | Bosch SMS4EMI60V | 60 × 84.5 × 60 cm |
+| Hood | Bosch DWP94CC50T | 89.8 × height to confirm × 47 cm |
+| Microwave | LG MH8265CIS | 54.4 × 30.8 × 45.8 cm |
+| Washing machine | LG F4Y9EWG2PV | 60 × 85 × 56.5 cm; outside kitchen scope |
 
-- الوحدة: متر.
-- `x = 0..2.21`: عرض الغرفة؛ الغرب عند `x=0` والشرق عند `x=2.21`.
-- `z = 0..2.95`: الشمال/ضلع الحوض عند `z=0` والجنوب/ضلع الشباك عند `z=2.95`.
-- `y`: الارتفاع.
-- الحائط الغربي يحتوي على فتحة الدخول، وهو مستبعد جزئيًا من بعض زوايا العرض لتسهيل رؤية الداخل.
+## Required layout
 
-## 5. أبعاد الغرفة المؤكدة من البلان
+- Maintain the compact U-shaped layout.
+- North wall: 60 cm dishwasher in the 65 cm recess, 75 cm sink base, then the east corner.
+- East wall: 90 cm cooker recess from approximately z = 1.20 m to z = 2.10 m, with the hood above.
+- South wall: 80 cm refrigerator recess at the west end, then the microwave worktop/drawer area, followed by the window and projection.
+- Keep the microwave within the kitchen, on the worktop beside the refrigerator. Keep the washing machine outside the kitchen.
+- Do not relocate the cooker, sink or refrigerator and do not introduce an island.
 
-| البند | المقاس |
-|---|---:|
-| عرض ضلع الحوض | 221 سم |
-| طول الغرفة | 295 سم = 225 + 70 |
-| عرض ضلع الشباك | 201 سم = 130 + 71 |
-| العمود/البروز عند الركنة | 20 × 70 سم |
-| عرض الشباك أفقيًا | 71 سم |
-| فتحة غسالة الأطباق | 65 سم |
-| وحدة الحوض | 75 سم |
-| فتحة البوتاجاز | 90 سم |
-| فتحة التلاجة | 80 سم |
+## Cabinet and finish requirements
 
-## 6. مقاسات الأجهزة
+- Baby-blue satin neo-classical lower cabinets with recessed panels.
+- Warm ivory upper cabinets with simple arches and moulding.
+- Warm-lit reeded-glass display cabinets.
+- Light warm quartz worktop.
+- Approximately 30 mm glass mosaic backsplash: icy blue, frosted clear, pearlescent silver and light lavender accent.
+- Silver / stainless steel / satin-nickel sink, mixer, pulls and accessories. Avoid black accessories.
+- A partially concealed stainless steel pyramidal hood, with its lower edge visible. Treat the enclosure as provisional until exhaust routing, safety clearances, filter access and service access are confirmed.
 
-الأبعاد: عرض × ارتفاع × عمق.
+## Critical coordination items
 
-| الجهاز | الموديل | المقاس |
-|---|---|---:|
-| التلاجة | Bosch KGN76CI3E8 | 75 × 186 × 84 سم حسب جدول المالك |
-| البوتاجاز | Bosch HGP3I8W50S | 89.9 × 88.4–92.9 × 60.7 سم |
-| غسالة الأطباق | Bosch SMS4EMI60V | 60 × 84.5 × 60 سم |
-| الشفاط | Bosch DWP94CC50T | 89.8 × ارتفاع غير مؤكد × 47 سم |
-| الميكروويف | LG MH8265CIS | 54.4 × 30.8 × 45.8 سم |
-| غسالة الملابس | LG F4Y9EWG2PV | 60 × 85 × 56.5 سم؛ **خارج المطبخ** |
+### Refrigerator door
 
-ملاحظة: صفحة Bosch الرسمية قد تعرض عمق جسم التلاجة 80 سم، بينما جدول المالك يذكر 84 سم. لا تحسم التعارض قبل مراجعة رسم التركيب والمقابض؛ المجسم الحالي يستخدم 84 سم كعمق اسمي مرسل.
+The refrigerator has a left-side handle and right-side hinges when viewed from the front. The door opens toward the adjacent wall. The model’s 90° door view intentionally shows the current handle/door conflict. Do not show free 90° clearance until it is confirmed using the Bosch installation drawing and final cabinet/end-panel dimensions.
 
-## 7. التقسيمة المطلوب الحفاظ عليها
+### Microwave and stepped cabinet
 
-- مطبخ U مدمج، وليس مطبخ عرض كبير أو توزيعًا متماثلًا.
-- ضلع الشمال: غسالة أطباق 60 داخل فتحة 65، ثم وحدة حوض 75، ثم ركنة باتجاه الشرق.
-- ضلع الشرق: البوتاجاز داخل فتحة 90 سم تقريبًا من `z=1.20` إلى `z=2.10`، والشفاط فوقه.
-- ضلع الجنوب: التلاجة في فتحة 80 سم ناحية الغرب، ثم رخامة/أدراج ووحدة أجهزة صغيرة، ثم الشباك والبروز.
-- الميكروويف داخل المطبخ، على الرخامة بجانب التلاجة. غسالة الملابس خارج المطبخ.
-- يوجد ثلاثة أدراج بيبي بلو أسفل الميكروويف.
-- لا تنقل البوتاجاز إلى الحائط الخلفي، ولا تنقل الحوض، ولا تنشئ جزيرة.
+- Retain the worktop microwave position beside the refrigerator and three drawers below.
+- Do not place the 54.4 cm-wide microwave inside the 50 cm upper cabinet.
+- The stepped upper cabinet ends before the window opening; retain this relationship.
+- Verify microwave ventilation clearance from manufacturer instructions.
 
-## 8. تصحيح وحدة الأجهزة بجانب التلاجة
+### Upper-cabinet corner
 
-التصور القديم لوحدة عالية بعرض 60 سم غير صالح؛ كان يتداخل مع أول 10 سم من الشباك، كما أن الميكروويف 54.4 سم لا يصلح داخل وحدة خارجية عرضها 50 سم.
+Keep the 290 mm connector that closes the gap between the sink-wall upper cabinets and the reeded-glass cabinet left of the cooker.
 
-الحل الحالي في المجسم:
+### AC trial above window
 
-- قاعدة/رخامة مفتوحة بعرض نحو 76 سم، والميكروويف فوقها.
-- ثلاثة أدراج أسفل الرخامة.
-- جزء علوي متدرج بعرض 50 سم من `x=0.80` إلى `x=1.30`، وينتهي عند بداية الشباك ولا يغطيه.
-- الميكروويف لا يوضع داخل صندوق بعرض 50 سم.
-- خلوص تهوية الميكروويف لم يعتمد بعد؛ راجع كتالوج الجهاز قبل اعتماد النجارة.
+The model includes a separate review-only group named `Trial 1.5hp AC above window - 800 x 270 x 210`. Current unverified assumptions create approximately 45 mm overlap with the adjacent cabinet and 10 mm overlap with the window opening. Keep the clash visible and treat this group as an adjustable trial, not an approved installation.
 
-## 9. باب التلاجة والخلوص
+## Values requiring site verification
 
-تأكيد المالك أثناء النظر إلى واجهة التلاجة:
+1. Kitchen ceiling height.
+2. Full window survey: width, height, sill height and distance from the corner.
+3. Entry opening and clear wall area above it.
+4. Refrigerator installation clearance and door swing from Bosch documentation.
+5. Microwave ventilation clearance.
+6. Hood enclosure feasibility, exhaust route, safety clearance and service access.
+7. Electrical, gas, water, drainage and hood-outlet locations.
+8. AC indoor-unit size, clearances, piping, condensate fall and outdoor-unit position.
+9. Final door, drawer, end-panel and filler dimensions before fabrication.
 
-- اليد على الشمال.
-- المفصلات على اليمين.
-- الباب يفتح ناحية الحائط.
+## Validation protocol
 
-فتحة 80 سم مع جسم 75 سم تترك 5 سم فقط إجمالًا، أي 2.5 سم لكل جانب عند التوسيط. المجسم الحالي يوضح أن فتح الباب 90 درجة يتسبب في تداخل اليد/الباب مع الحائط. لا تعرض الباب كأنه يفتح بحرية.
+After any geometry change:
 
-قبل اعتماد الوضع النهائي يلزم أحد الحلول المبنية على مقاس وتعليمات الشركة: زيادة خلوص ناحية المفصلات، إزاحة التلاجة داخل الفتحة، تغيير لوح النهاية، أو عكس اتجاه الباب إذا اختار المالك ذلك. لا تغير اتجاه الباب دون طلب جديد من المالك.
+1. Run `node export.mjs` to update the GLB.
+2. Run `python3 package.py` to rebuild the offline viewer and delivery package.
+3. Inspect the plan, refrigerator-and-window, cooker and AC views.
+4. Test the 90° refrigerator-door control and ensure the displayed clearance condition matches the geometry.
+5. Preserve the confirmed layout; use only verified measurements for fabrication decisions.
 
-## 10. الشباك والارتفاعات غير المؤكدة
+## Starter prompt
 
-- عرض الشباك 71 سم مؤكد من البلان.
-- جلسة الشباك 145 سم وارتفاعه 75 سم افتراضان بصريان من صورة الموقع.
-- السقف 247 سم افتراض مؤقت مأخوذ من قياس أوضة النوم، وليس المطبخ.
-- أعلى الرخامة 89 سم، سمك الرخامة 4 سم، وعمق الضلع الأساسي 65 سم: افتراضات تصميم حالية.
-- الوحدات العلوية من 150 إلى 237 سم، والحلية تصل إلى نحو 244 سم: تُراجع بعد قياس سقف المطبخ.
-
-## 11. الخامات واللغة البصرية
-
-- السفلي: بيبي بلو ساتان، درف نيو كلاسيك بحشوات غائرة.
-- العلوي: بيج فاتح/عاجي دافئ، أقواس وحليات بسيطة.
-- وحدات عرض بزجاج مخدد مع إضاءة دافئة.
-- الرخامة: كوارتز فاتح دافئ.
-- الـbacksplash: مربعات موزاييك زجاج صغيرة نحو 3 سم، أزرق ثلجي + شفاف مطفي + فضي لؤلؤي + لمسة لافندر خفيفة. لا تستخدم سيراميك مزخرف نباتي.
-- الحوض والخلاط والمقابض: فضي/ستانلس/نيكل ساتان. لا تستخدم إكسسوارات سوداء.
-- الشفاط: ستانلس هرمي Bosch، مغطى جزئيًا بوحدة عاجي قابلة للفك مع ظهور الحافة السفلية فقط. هذا تصور؛ اعتماد التغطية والتهوية والصيانة مع الفني إلزامي.
-
-## 12. اقتراح مكان تكييف 1.5 حصان
-
-### الاختيار الأول
-
-الوحدة الداخلية أعلى فتحة دخول المطبخ على الحائط الغربي، موجهة بطول المطبخ نحو ضلع الشباك.
-
-الأسباب:
-
-- أبعد موضع متاح عن البوتاجاز والشفاط ورذاذ الدهون والحرارة المباشرة.
-- لا يستهلك مساحة وحدات الحوض أو ضلع الشباك.
-- يساعد على دفع الهواء بطول الغرفة بدل ضربه مباشرة في البوتاجاز أو الثلاجة.
-- يسهل الوصول إليه للصيانة مقارنة بوضعه فوق الأجهزة.
-
-### شروط الاعتماد
-
-- قياس عرض الجزء المستقيم فوق فتحة الدخول؛ يجب أن يستوعب عرض الوحدة الداخلية المختارة وخلوص الجانبين حسب كتالوجها. لا تفترض أن كل أجهزة 1.5 حصان بنفس العرض.
-- قياس ارتفاع عتب فتحة الدخول وسقف المطبخ. مع سقف افتراضي 247 سم، يجب التأكد أن ارتفاع الوحدة وخلوصها العلوي يسمحان بالتركيب ولا يعوقان الباب أو الكرانيش.
-- تحديد مسار صرف التكثيف بميل مستمر، ومكان مواسير الفريون والكهرباء، ومكان الوحدة الخارجية.
-- لا يمر الصرف فوق البوتاجاز أو داخل وحدات بدون نقطة صيانة.
-- مراجعة اتجاه ريش الهواء حتى لا تضرب لهب البوتاجاز مباشرة.
-
-### أماكن غير مفضلة
-
-- فوق البوتاجاز أو على الحائط الشرقي: دهون وحرارة ومشكلة مع الشفاط.
-- فوق التلاجة: صيانة صعبة، ازدحام مع الوحدة العلوية، وهواء مباشر على الجهاز.
-- على حائط الحوض: الوحدات العلوية تشغل المساحة، مع رطوبة وخدمات.
-- فوق/بجوار الشباك: ازدحام مع التلاجة والوحدة المتدرجة، ومسار هواء قصير وغير منتظم.
-
-أضيفت لاحقًا **نسخة تجريبية قابلة للمراجعة فوق الشباك** بناءً على طلب المالك، بمقاس افتراضي 80 × 27 × 21 سم. مع الأبعاد الافتراضية الحالية تتداخل 4.5 سم أفقيًا مع الوحدة المجاورة و1 سم رأسيًا مع فتحة الشباك؛ لذلك وجودها في المجسم لا يعني صلاحية التنفيذ. يلزم قياس: الشباك، السقف، عرض الحائط الصافي، أبعاد الوحدة الداخلية المحددة، ومسار الصرف والوحدة الخارجية.
-
-## 13. ما تم تنفيذه في الـ3D
-
-- هندسة الغرفة الأساسية ومقاسات البلان المؤكدة.
-- الوحدات السفلية والعلوية والخامات الرئيسية.
-- الأجهزة بأبعاد اسمية.
-- موزاييك زجاجي جديد.
-- ثلاثة أدراج أسفل الميكروويف.
-- وحدة أجهزة متدرجة لا تتداخل أفقيًا مع بداية الشباك.
-- يد التلاجة شمال ومفصلات يمين، مع زر فتح 90 درجة وإظهار التعارض مع الحائط.
-- واجهة شفاط مبدئية قابلة للمراجعة.
-- زوايا كاميرا ومسقط ومقاسات وتصدير GLB.
-- تكييف تجريبي بعرض 80 سم فوق الشباك مع زاوية معاينة مستقلة وإظهار التداخل.
-- وحدة ربط 29 سم تغلق فراغ الركنة بين وحدات ضلع الحوض والوحدة الزجاجية شمال البوتاجاز، بما يحقق اتصال الوحدات مثل المرجع.
-
-## 14. المشاكل المفتوحة بالترتيب
-
-1. قياس سقف المطبخ الحقيقي.
-2. قياس الشباك كاملًا: العرض، الارتفاع، الجلسة، والمسافة من الركنة.
-3. قياس فتحة الدخول والحائط أعلاها لتركيب التكييف.
-4. حل خلوص باب التلاجة ناحية الحائط طبقًا لرسم تركيب Bosch.
-5. اعتماد مكان الميكروويف وخلوص التهوية.
-6. اعتماد إمكانية تغطية الشفاط ومسافات الأمان والوصول للفلاتر والمدخنة.
-7. مواقع الكهرباء، الغاز، المياه، الصرف، ومخرج الشفاط.
-8. مراجعة مقاسات الدرف والفواصل قبل أي تصنيع.
-9. بعد تثبيت ما سبق: تحسين الإضاءة والخامات وإنتاج صور وفيديو واقعي من **نفس الكاميرات والهندسة**.
-
-## 15. تعليمات الاستكمال لـAstra
-
-1. افتح `scene.mjs` و`viewer.mjs` و`dimensions.json` أولًا.
-2. اعرض حالة المجسم الحالية قبل تعديل الهندسة.
-3. لا تستخدم صور AI كمرجع هندسي.
-4. لا تعيد ترتيب الأجهزة الرئيسية.
-5. أي رقم غير موجود هنا يُسجل كافتراض واضح، ولا يقدم كقياس مؤكد.
-6. عند إضافة التكييف، اجعله في مجموعة منفصلة قابلة للإخفاء، وأضف مجال أبعاد وخلوصات قابلًا للتعديل بدل تثبيت نموذج عشوائي.
-7. بعد كل تعديل شغّل التصدير والحزمة، وافحص العارض بصريًا وزر فتح التلاجة والمسقط.
-8. الصورة الواقعية يجب أن تستخدم لقطة من الـ3D كمرجع هندسي رئيسي مع صور الستايل كمراجع خامات فقط.
-
-## 16. رسالة قصيرة جاهزة لبدء المهمة مع Astra
-
-> اقرأ الملف `ASTRA-HANDOFF.md` كاملًا واعتبره مرجع المشروع الأساسي. افحص النسخة الحالية داخل `kitchen-v2` ولا تبدأ من الصفر. استكمل تصحيح هندسة المطبخ مع الحفاظ على التقسيمة والمقاسات المؤكدة. راجع خلوص باب التلاجة ووحدة الأجهزة والشباك، واحتفظ بتجربة تكييف 1.5 حصان بعرض 80 سم فوق الشباك في مجموعة منفصلة قابلة للتعديل؛ اعرض التداخل الحالي بوضوح ولا تدّعِ صلاحية التنفيذ قبل ورود القياسات الفعلية. حافظ كذلك على وحدة الربط التي أغلقت فراغ الركنة شمال البوتاجاز. بعد ذلك صدّر GLB وحدّث الحزمة، ثم أنشئ رندرًا واقعيًا من نفس هندسة وكاميرات المجسم. لا تستخدم صور AI كمصدر للمقاسات ولا تغيّر مواقع البوتاجاز أو الحوض أو التلاجة.
+> Read `ASTRA-HANDOFF.md`, `dimensions-and-assumptions.md` and `dimensions.json` before editing. Inspect the existing `kitchen-v2` model and continue from its geometry; do not rebuild from scratch. Preserve the compact U-shaped layout and all confirmed plan dimensions. Keep the refrigerator-door clearance conflict, the stepped microwave arrangement, the 290 mm upper-cabinet corner connector, and the adjustable AC trial above the window visible until site measurements resolve them. Use image references only for materials and lighting. After each change, export the GLB, rebuild the offline package and visually verify the specified camera views and door interaction.

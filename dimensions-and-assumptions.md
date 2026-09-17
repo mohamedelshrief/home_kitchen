@@ -1,88 +1,97 @@
-# تصميمي لمطبخ بيتي — النسخة الثانية
+# Kitchen Design Review — Revision 3
 
-## الملفات
+## Deliverables
 
-- `alex-kitchen-offline.html`: عرض ثلاثي الأبعاد يعمل دون إنترنت في متصفح حديث. اسحب للدوران واستخدم عجلة الماوس للتقريب؛ أزرار للحوض والبوتاجاز والتلاجة والمسقط، وجولة تلقائية.
-- `alex-kitchen.glb`: مجسم بوحدة المتر، بأجزاء مسماة وخامات. يمكن استيراده في Blender أو أي برنامج يدعم glTF/GLB.
-- `material-concept.png`: لقطة من المجسم المعدل للمراجعة؛ الصورة الواقعية السابقة لا تمثل خامات النسخة الثانية.
-- `scene.mjs`: المصدر القابل لتعديل الأبعاد والواجهات؛ `dimensions.json`: سجل الأبعاد والافتراضات.
+- `alex-kitchen.glb`: 3D coordination model in metres.
+- `alex-kitchen-offline.html`: self-contained interactive viewer.
+- `dimensions.json`: machine-readable room, appliance and design data.
+- `ASTRA-HANDOFF.md`: continuation brief for the 3D model.
 
-## المراجع
+## Source hierarchy
 
-1. `/home/muhamed/sha2a/khalil hamadaPLAN-Model (1).pdf`: البلان الأفقي.
-2. `/home/muhamed/sha2a/matba5/ALEX KITCHEN.pdf`: تقسيمة وخامات التصميم الأصلي، 12 صفحة.
-3. `/home/muhamed/sha2a/matba5/20260825_025617.mp4`: زوايا التصميم الأصلي.
-4. الصورتان المرسلتان للنيو كلاسيك: مرجع اللون والحليات والأقواس والزجاج، وليس توزيع الأجهزة.
-5. جدول الأجهزة الذي أرسله المستخدم في المحادثة. الأبعاد من الجدول؛ لم تُراجع كتالوجات الشركات.
+Use the following priority where references conflict:
 
-## الأبعاد المقروءة من البلان
+1. Confirmed numerical dimensions in this document and the appliance schedule.
+2. Apartment plan: `khalil hamadaPLAN-Model (1).pdf`.
+3. Original kitchen layout: `ALEX KITCHEN.pdf` and `20260825_025617.mp4`.
+4. Existing-site photograph for window context only.
+5. Style references for finishes only; never derive dimensions or appliance locations from them.
 
-| البند | المقاس |
-|---|---:|
-| عرض ضلع الحوض | 221 سم |
-| طول الغرفة | 295 سم = 225 + 70 |
-| عرض الغرفة عند ضلع الشباك | 201 سم = 130 + 71 |
-| البروز قرب الشباك | نحو 20 × 70 سم؛ الـ20 فرق العرضين |
-| عرض الشباك في البلان | 71 سم |
-| فتحة غسالة الأطباق | 65 سم |
-| وحدة الحوض | 75 سم |
-| فتحة البوتاجاز | 90 سم |
-| فتحة التلاجة | 80 سم |
+AI-generated images are presentation references only. They are not construction drawings.
 
-## أبعاد الأجهزة المرسلة
+## Confirmed plan dimensions
 
-الأرقام بالسم، بترتيب العرض × الارتفاع × العمق.
+| Item | Dimension |
+| --- | ---: |
+| Sink-wall width | 221 cm |
+| Overall room length | 295 cm = 225 + 70 cm |
+| Window-wall width | 201 cm = 130 + 71 cm |
+| Corner column / projection | 20 × 70 cm |
+| Window clear width | 71 cm |
+| Dishwasher recess | 65 cm |
+| Sink base | 75 cm |
+| Cooker recess | 90 cm |
+| Refrigerator recess | 80 cm |
 
-| الجهاز | الموديل حسب الجدول | الأبعاد |
-|---|---|---|
-| التلاجة | Bosch KGN76CI3E8 | 75 × 186 × 84 |
-| البوتاجاز | Bosch HGP3I8W50S | 89.9 × 88.4–92.9 × 60.7 |
-| غسالة الأطباق | Bosch SMS4EMI60V | 60 × 84.5 × 60 |
-| الشفاط | Bosch DWP94CC50T | 89.8 × ارتفاع غير معطى × 47 |
-| الميكروويف | LG MH8265CIS | 54.4 × 30.8 × 45.8 |
-| غسالة الملابس — خارج المطبخ بتأكيد المستخدم | LG F4Y9EWG2PV | 60 × 85 × 56.5 |
+## Appliance schedule
 
-شكل الأجهزة تمثيل مبسط وليس نموذج CAD من الشركة. جرى إدخال أبعادها الاسمية، وقد تضيف مقابض النمذجة بضعة سنتيمترات. فتحة 65 سم لغسالة الأطباق تترك 5 سم إجمالًا حول جهاز عرضه 60 سم؛ تفاصيل الفواصل لم تُعتمد.
+Dimensions are W × H × D unless stated otherwise.
 
-## افتراضات ظاهرة في النموذج
+| Appliance | Model | Dimension |
+| --- | --- | --- |
+| Refrigerator | Bosch KGN76CI3E8 | 75 × 186 × 84 cm (owner schedule) |
+| Cooker | Bosch HGP3I8W50S | 89.9 × 88.4–92.9 × 60.7 cm |
+| Dishwasher | Bosch SMS4EMI60V | 60 × 84.5 × 60 cm |
+| Hood | Bosch DWP94CC50T | 89.8 × height to confirm × 47 cm |
+| Microwave | LG MH8265CIS | 54.4 × 30.8 × 45.8 cm |
+| Washing machine | LG F4Y9EWG2PV | 60 × 85 × 56.5 cm; outside the kitchen |
 
-- ارتفاع 247 سم مأخوذ **مؤقتًا من قياس أوضة النوم** الذي ذكره المستخدم، وليس قياسًا مؤكدًا للمطبخ.
-- أعلى الرخامة 89 سم، وسمكها 4 سم، وعمق الضلع الأساسي 65 سم. العمق يتغير عند البروز.
-- الوحدات العلوية من 150 إلى 237 سم؛ الحلية العليا تصل نحو 244 سم. تفصيل الارتفاعات معلق على قياس سقف المطبخ الحقيقي.
-- جلسة الشباك 145 سم وارتفاعه 75 سم، افتراضان فقط؛ عرضه من البلان.
-- مواقع الأجهزة الرئيسية تتبع التقسيمة المرسلة، لكن مقاسات الدرف والحليات والوحدات العلوية أُعيد بناؤها من الصور والفيديو. لا يوجد ملف 3D أصلي للمقارنة بالملّي.
-- الميكروويف على الرخامة بجانب التلاجة، بناءً على تأكيد المستخدم بإضافته. مكانه مبدئي؛ يجب مراجعة منسوب الشباك وتهويته ومسافات تركيب الجهاز.
-- عمق التلاجة 84 سم مقابل رخامة 65 سم؛ فرق اسمي 19 سم قبل إضافة خلوص الخدمات. مكانها الأصلي محفوظ ويظهر بروزها في النموذج.
-- السقف وحائط المدخل مستبعدان من عرض المجسم لسهولة رؤية الداخل. المسقط بالمجسم ليس لوحة أبواب وفتحات تنفيذية.
-- موضع الشفاط وشكل مدخنته تقريبيان. مسافة التركيب النهائية تُراجع مع كتالوج الشفاط والبوتاجاز.
+Verify the refrigerator installation drawing before fabrication: the manufacturer information may state an 80 cm cabinet depth while the owner schedule states 84 cm overall depth.
 
-## الستايل
+## Design intent
 
-درف سفلية بيبي بلو ساتان، ودرف علوية بيج فاتح مع أقواس وحليات نيو كلاسيك، وزجاج مخدد في وحدتي العرض، ومقابض نيكل، ورخامة فاتحة، وموزاييك زجاجي أزرق ثلجي وفضي، وحوض وخلاط فضي، وثلاثة أدراج أسفل الميكروويف، وإضاءة دافئة.
+- Compact U-shaped kitchen; retain the established sink, cooker and refrigerator locations.
+- Baby-blue satin lower cabinets with neo-classical recessed panels.
+- Warm ivory upper cabinets with restrained arches and moulding.
+- Reeded-glass display doors with warm internal lighting.
+- Light warm quartz worktop.
+- Glass mosaic backsplash: approximately 30 mm tiles in icy blue, frosted clear, pearlescent silver and a light lavender accent.
+- Stainless steel / satin-nickel sink, mixer, pulls and accessories.
+- Stainless steel pyramidal hood, partially concealed by a removable ivory enclosure; confirm ventilation, filter access and service clearance with the installer.
 
-## حدود الاستخدام
+## Current coordination assumptions
 
-هذا نموذج للمراجعة البصرية والأبعاد الأولية؛ ليس مخطط تصنيع. يلزم قياس سقف المطبخ وجلسة الشباك ومواقع الخدمات وتأكيد فراغات فتح الأبواب وتهوية الأجهزة قبل تفصيل المطبخ.
+| Item | Current value | Status |
+| --- | ---: | --- |
+| Kitchen ceiling height | 247 cm | Temporary; based on a bedroom measurement |
+| Window sill height | 145 cm | Temporary visual assumption |
+| Window height | 75 cm | Temporary visual assumption |
+| Worktop height | 89 cm | Design assumption |
+| Worktop thickness | 4 cm | Design assumption |
+| Primary base-cabinet depth | 65 cm | Design assumption |
+| Upper-cabinet zone | 150–237 cm | Verify against the actual kitchen ceiling |
 
-## تعديلات النسخة الثانية
+## Refrigerator door clearance
 
-اختيارات التصميم واللون والتعديلات تخص صاحب المطبخ، مع الاحتفاظ بتوزيع المصمم المرسل كمرجع. أُضيفت ثلاثة أدراج في ضلع الشباك أسفل الميكروويف، وموزاييك زجاجي بألوان ثلجية وفضية، وحوض وخلاط فضي. واجهة الشفاط زخرفية قابلة للفك في التصور فقط؛ يجب اعتماد إمكانية تغطية هذا الشفاط الحائطي وخلوصاته مع الفني. مصدر مواصفات الشفاط: https://media3.bosch-home.com/Documents/specsheet/en-XN/DWP94CC50T.pdf . صورة الموقع تشير إلى شباك أعلى من الافتراض الأول؛ المنسوب الجديد 145 سم والارتفاع 75 سم افتراضان بصريان لحين القياس.
+The refrigerator has a left-side handle and right-side hinges when viewed from the front. It opens toward the adjacent wall. An 80 cm recess around a 75 cm body leaves approximately 25 mm nominal clearance at each side when centred. The current 90° open-door view indicates a handle/door conflict with the wall. Resolve this from the Bosch installation drawing before fabrication; possible solutions include revised hinge-side clearance, a changed end panel, a recess offset, or a factory-approved door reversal.
 
-## وحدة الأجهزة الصغيرة
+## Microwave and window-wall cabinet arrangement
 
-أُعيدت وحدة الأجهزة بجانب التلاجة من الرخامة للسقف، بعرض تصوري 60 سم ورف للميكروويف ورفوف أجهزة صغيرة. العرض الداخلي نحو 56.4 سم مقابل ميكروويف 54.4 سم؛ خلوص التهوية غير معتمد. قد تتداخل الوحدة مع أول 10 سم من الشباك حسب البلان، لذا يلزم القياس قبل اعتماد العرض.
+- The microwave remains on the worktop beside the refrigerator; it is not placed in the 50 cm upper cabinet.
+- Three baby-blue drawers sit below the microwave worktop.
+- The stepped upper cabinet runs from approximately x = 0.80 m to x = 1.30 m and ends before the window opening.
+- Confirm microwave ventilation clearances from the LG installation documentation.
 
+## AC trial above the window
 
-## تصحيح حركة الباب والوحدة المتدرجة
-- اليد شمال والمفصلات يمين وأنت مواجه للتلاجة، حسب تأكيد المالك.
-- فتحة 80 سم مع جسم 75 سم تترك 2.5 سم ناحية الحائط في التوسيط الحالي. حركة 90 درجة في العارض تظهر تداخل اليد مع الحائط؛ هذا تعارض قائم وليس اعتماد تنفيذ.
-- الوحدة العالية أصبحت 50 سم وتنتهي عند بداية الشباك، وتبدأ فوق نيش مفتوح بعرض 76 سم. الميكروويف بعرض 54.4 سم على الرخامة، وفراغات تهويته لم تعتمد.
-- الصورة material-concept.png من النسخة السابقة وغير صالحة للتحقق من المقاسات أو اتجاه الباب. المرجع الهندسي هو المجسم المعدل، مع التحفظات المذكورة.
+The 3D model includes a review-only 1.5 HP indoor-unit trial, nominally 800 × 270 × 210 mm, above the window. With the current unverified ceiling and window assumptions, it overlaps the adjacent cabinet by approximately 45 mm horizontally and the window opening by approximately 10 mm vertically. It is retained to communicate the conflict and is not an installation recommendation.
 
-## تجربة التكييف وإغلاق ركنة الوحدات
+Before selecting this position, site-measure the actual ceiling, window head, clear wall width, chosen indoor-unit dimensions, refrigerant route, condensate fall and outdoor-unit location.
 
-- أضيف جسم تكييف تجريبي فوق الشباك بمقاس 80 × 27 × 21 سم، وليس موديل جهاز معتمد.
-- بالمقاسات الافتراضية الحالية يمتد جسم التكييف من x=1.255 إلى x=2.055 م، بينما الوحدة العلوية المجاورة تصل إلى x=1.30 م؛ التداخل الأفقي 4.5 سم.
-- أسفل التكييف عند 2.19 م وأعلى فتحة الشباك الافتراضي عند 2.20 م؛ التداخل الرأسي 1 سم قبل إضافة خلوص السقف والتركيب.
-- أضيفت وحدة ربط بعرض 29 سم لإغلاق الفراغ بين وحدات ضلع الحوض والوحدة الزجاجية شمال البوتاجاز، على طريقة الصورة المرجعية.
-- التجربة توضح الشكل والتعارضات فقط. لا يعتمد مكان التكييف قبل قياس الشباك والسقف والوحدة الفعلية.
+## Upper-cabinet corner revision
+
+The left-side gap between the sink-wall upper cabinets and the reeded-glass cabinet beside the cooker is closed with a 290 mm corner connector. Keep this connector when revising the model unless the site survey requires another solution.
+
+## Execution limitations
+
+This package is a design-coordination model. All unverified heights, appliance installation clearances, ventilation requirements, services, door swing and final panel dimensions must be checked on site and against the relevant manufacturer documentation before ordering or fabrication.

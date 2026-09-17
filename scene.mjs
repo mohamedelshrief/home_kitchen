@@ -1,6 +1,6 @@
 import * as THREE from './three.mjs';
 export function buildKitchen(){
- const root=new THREE.Group();root.name='My home kitchen - personal design - revision 2';
+ const root=new THREE.Group();root.name='Kitchen Design Coordination Model - Revision 3';
  const groups={};for(const name of ['base','upper','ac','north','east','south','west','floor','detail']){groups[name]=new THREE.Group();groups[name].name=name;root.add(groups[name]);}
  const material=(name,color,roughness=.48,metalness=0)=>{let m=new THREE.MeshStandardMaterial({color,roughness,metalness});m.name=name;return m;};
  const M={blue:material('Baby blue satin lacquer','#a6bfd3'),beige:material('Warm ivory beige satin','#e5dbca'),edge:material('Blue inset shadows','#829eb5'),ivoryEdge:material('Ivory moulding shadow','#c9bcaa'),stone:material('Warm white quartz','#eee9df',.28),wall:material('Warm plaster','#e9e5dc',.85),tile:material('Ivory ceramic','#e7e3d8',.38),pattern:material('Muted blue tile motif','#9eafb2',.6),grout:material('Warm grey grout','#c4c4bb',.9),steel:material('Brushed stainless steel','#aeb5b8',.3,.55),black:material('Graphite appliances','#20282c',.32,.18),glass:material('Smoked glass','#526269',.13,.45),wood:material('Oak cabinet interiors','#cbb28b',.7),silver:material('Satin nickel hardware','#c5c9c7',.23,.65),leaf:material('Sage foliage','#667b56',.8),soil:material('Soil','#423b32',.9),light:material('Warm LED diffuser','#fff0cc',.3)};
