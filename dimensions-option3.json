@@ -6,26 +6,29 @@
     "length": 2.95,
     "southClearWidth": 2.01
   },
+  "revision": "Connected U with dedicated 700 mm pot drawers",
   "layout": {
-    "sinkCentreX": 1.005,
+    "sinkCentreX": 0.955,
+    "sinkCabinetWidth": 0.65,
     "dishwasherCentreX": 0.31,
-    "dishwasherWall": "south",
-    "rangeCentreZ": 1.15,
-    "rangeSouthLanding": 0.35,
-    "northPrepFrontage": 0.74,
-    "cornerOpening": 0.7,
-    "westReturn": "clear for loading and circulation",
-    "fridgeEntryProjection": 0.14,
-    "AC": "800 mm centred above entrance"
+    "rangeCentreZ": 1.55,
+    "potCabinetWidth": 0.7,
+    "potDrawerNominalDepth": 0.5,
+    "potDrawerTravel": 0.48,
+    "northCornerAccess": 0.43,
+    "southCornerLeaves": [
+      0.27,
+      0.28
+    ],
+    "fridgeEntryProjection": 0.14
   },
   "limitations": [
-    "Kitchen height, window and appliance installation drawings require survey.",
-    "Existing deep refrigerator still projects 140 mm into entry approach: retained owner constraint.",
-    "North straight prep 740 mm falls short of 914 mm guideline.",
-    "350 mm range landing is below 381 mm benchmark on one side.",
-    "Blind corner shelves accessible through 700 mm opening; back corner requires reach, no unverified pull-out mechanism claimed.",
-    "600 mm south cupboard has 300 mm hinged leaves, not deep drawers facing range-side landing.",
-    "Microwave is on an open shelf, not enclosed built-in.",
-    "Concept only; no claim of fully compliant or fabrication-ready layout."
+    "650 mm sink cabinet is proposed; confirm actual bowl, cut-out and clips before joinery. Sink moves 50 mm left of wall centre.",
+    "South corner uses a proposed linked folding door, with 270/280 mm leaves; hinges, column clearance and access must be mocked up. Interior view removes faces and is not a validated hinge animation.",
+    "North corner retains deep reach storage through a 430 mm nominal opening; not all volume is equally convenient.",
+    "Fridge entry projection remains 140 mm.",
+    "Pot drawer boxes are illustrative; select runners and calculate clear internal space and loaded weight.",
+    "Corner landings are not equivalent to a full straight preparation frontage.",
+    "Microwave ventilation, hood surround, AC and kitchen vertical dimensions remain unverified."
   ]
 }

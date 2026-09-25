@@ -1,27 +1,29 @@
-# Option 3 — Practical access with retained appliances
+# Option 3 — connected U and large pot drawers
 
-Dimensions in millimetres. Room 2210 × 2950; south clear wall 2010; structural projection 200 × 700. Entrance opening 750 after the 700 north return. Kitchen ceiling, window and entrance head remain unmeasured.
+Revision: 700 mm pot cabinet alongside the retained entry-side refrigerator, with independent access to both storage corners. Dimensions are in millimetres. This is a coordination proposal, not fabrication approval.
 
-## Design decision
+## Cabinet layout
+- North: refrigerator bay about 800; pot cabinet from x=810 to 1510, width 700; partition and north-east corner occupy the remaining width. Worktop stays connected.
+- Pot cabinet: two deep fronts approximately 310/320 high, illustrative drawer boxes 610 wide and 500 deep, 480 travel. These are not guaranteed clear internal dimensions. A model 300 mm pot body with handles illustrates scale. Measure the largest pot including its handles and lid.
+- North corner: shelves continue into the east return. Access is from the cooker wall through a nominal 430 mm front, not through or behind the pot drawers. Deep reach remains less convenient than drawer storage.
+- Cooker opening: z=1100–2000. The 900 mm cooker and hood move together.
+- South wet run: dishwasher 600, proposed sink base 650 and connected corner. Sink centre x=955 is 50 mm left of the clear-wall centre. Sink cabinet change must be checked against actual bowl, cut-out and clips.
+- South-east corner follows the 200 × 700 structural projection. Proposed linked folding leaves measure 270 and 280 nominally. This is not their net opening. A joiner must validate hinges, front offsets and a usable opening with a full-scale template.
+- No tall appliance tower was added beside the refrigerator because that frontage is now allocated to the requested pot drawers and preparation counter. Microwave stays on an open shelf above this area.
 
-This is the preferred access-first alternative within the owner's retained refrigerator position and appliances, not an assertion that every guideline can be satisfied. Keep the south wet run and north/east cooking/storage run; leave the west return clear. A connected cabinet in every corner prevented people from loading appliances and reduced corner access to 170–240 mm. Here only the north-east is a blind storage corner, with a 700 mm nominal paired-door opening; shelves extend into the corner. Deep contents still require reaching and are best reserved for occasional-use items. No commercial pull-out hardware is implied.
+## Operation and checks
+The browser has Open Pot Drawers and Inspect Both Corners controls. The latter removes fronts to inspect shelves; it does not simulate approved corner hardware. Pot drawers and the fridge door have overlapping open envelopes, so the viewer closes one before opening the other. This is an explicit operating compromise, not a solved simultaneous-opening condition.
 
-South wall, left to right: 10 scribe + 600 dishwasher + 20 separator + 750 sink + 10 separator + 600 cupboard + 20 closing allowance = 2010. Sink centre remains 1005. Dishwasher and sink share the same service zone, with connections inside the sink cabinet rather than behind the appliance. Final appliance bay tolerances and hose routing follow the installation manual.
+Mesh-level bounding-box checks found no intersection between the fully extended pot drawers and the closed cooker. This does not verify the oven open, manufacturing tolerances or hand clearance. Dishwasher remains beside the sink; its northward opening occupies the west side of the room, away from the pot drawers.
 
-North: existing 750 × 840 refrigerator in its accepted entry corner, then approximately 740 mm straight preparation frontage and connected blind corner storage. East: 900 range opening at z=700–1600, followed by 350 mm pan drawers and landing at z=1610–1960. The 350 mm landing remains slightly under the 381 mm guideline on that side. South-east cupboard has short paired hinged doors, not deep drawers aimed at the range landing. The roughly 340 mm separation here is cabinet-access geometry, not a walk-through aisle. The standing area is to its west.
+Fridge still projects 140 mm beyond the entry return. Straight preparation frontage remains about 700–740 mm. Corner worktops do not turn this into 914 mm of straight prep space. Kitchen ceiling, window, AC clearances, hood enclosure and microwave ventilation remain provisional.
 
-The dishwasher opens toward the north into an otherwise clear loading zone; no perpendicular west cabinet constrains the operator. Its open door front is approximately z=1577; the north counter front is z=650, leaving approximately 927 mm geometrically before handles or a person. Exact rack reach needs the actual product drawing. This is not a promise of simultaneous appliance use.
+## Drawer hardware
+Specify full-extension runners, a load rating chosen for the drawer plus its contents, and tall drawer sides. Manufacturer MOVENTO options include 40 and 70 kg classes; this is a specification example, not a claim that a particular model has been selected or is locally available.
+https://www.blum.com/gb/en/products/runnersystems/movento/programme/
 
-The open microwave shelf is raised to 1250 mm; the appliance is not treated as built-in. Confirm accessible reach, shelf anchorage and manufacturer air gaps. White uppers, blue bases, silver hardware and entrance-centred 800 mm AC are retained. The AC envelope and hood surround still require installation verification.
+Corner drawer systems exist, but fitting one here requires its exact cabinet envelope; none is implied in this model.
+https://www.blum.com/in/en/products/cabinet-applications/space-corner/overview/
 
-## Unresolved constraints — do not hide them
-
-- The 840 mm refrigerator still exceeds the 700 mm entry return by 140 mm. This accepted location does not solve entry clearance; changing its depth or position is a separate owner decision.
-- Continuous straight prep frontage is 740 mm, short of the 914 × 610 mm NKBA benchmark. Replacing the 900 range or refrigerator would allow a further redesign; neither appliance was silently changed.
-- Original entry is already only 750 mm. This is not an accessible kitchen or a claim of local code compliance.
-- The refrigerator animation now swings outward. A 90° demonstration does not validate internal drawer extraction or manufacturer hinge/wall clearances.
-- Final sink cut-out, exact appliance clearances, gas/hood separation, window operation and cabinet doors must be checked by the installer before fabrication.
-
-## Reference
-
-NKBA Kitchen Planning Guidelines: https://media.nkba.org/uploads/2022/05/Kitchen-Planning-Guidelines.pdf — reference benchmarks include 1067 mm one-cook aisle, 914 × 610 mm preparation surface and 533 mm standing separation at a dishwasher beside perpendicular cabinetry. These are planning guidance, not Egyptian statutory approval. The design deliberately keeps the dishwasher away from a perpendicular base run.
+Planning reference:
+https://media.nkba.org/uploads/2022/05/Kitchen-Planning-Guidelines.pdf
