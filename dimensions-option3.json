@@ -1,0 +1,31 @@
+{
+  "option": 3,
+  "units": "metres",
+  "room": {
+    "width": 2.21,
+    "length": 2.95,
+    "southClearWidth": 2.01
+  },
+  "layout": {
+    "sinkCentreX": 1.005,
+    "dishwasherCentreX": 0.31,
+    "dishwasherWall": "south",
+    "rangeCentreZ": 1.15,
+    "rangeSouthLanding": 0.35,
+    "northPrepFrontage": 0.74,
+    "cornerOpening": 0.7,
+    "westReturn": "clear for loading and circulation",
+    "fridgeEntryProjection": 0.14,
+    "AC": "800 mm centred above entrance"
+  },
+  "limitations": [
+    "Kitchen height, window and appliance installation drawings require survey.",
+    "Existing deep refrigerator still projects 140 mm into entry approach: retained owner constraint.",
+    "North straight prep 740 mm falls short of 914 mm guideline.",
+    "350 mm range landing is below 381 mm benchmark on one side.",
+    "Blind corner shelves accessible through 700 mm opening; back corner requires reach, no unverified pull-out mechanism claimed.",
+    "600 mm south cupboard has 300 mm hinged leaves, not deep drawers facing range-side landing.",
+    "Microwave is on an open shelf, not enclosed built-in.",
+    "Concept only; no claim of fully compliant or fabrication-ready layout."
+  ]
+}
