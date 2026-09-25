@@ -4,6 +4,8 @@ p=Path(__file__).resolve().parent
 viewer=(p/'viewer.mjs').read_text().replace("./scene.mjs?v=5","./scene-option2.mjs")
 viewer=viewer.replace("target.set(1.04,1.48,.1);radius=2.15;az=-.12;el=.07;camera.fov=64", "target.set(1.15,1.25,2.75);radius=1.45;az=-Math.PI+.10;el=.16;camera.fov=85")
 viewer=viewer.replace("target.set(1.05,1.39,2.78);radius=2.28;az=-Math.PI+.10", "target.set(1.02,1.39,.1);radius=2.45;az=-.12")
+viewer=viewer.replace("target.set(1.48,1.90,2.78);radius=2.28;az=-Math.PI+.10;el=.04;camera.fov=64", "target.set(.12,2.03,1.075);radius=1.32;az=Math.PI/2;el=.04;camera.fov=67")
+viewer=viewer.replace("line([1.255,2.46,2.75],[2.055,2.46,2.75],'AC 80 cm')", "line([.24,2.38,.675],[.24,2.38,1.475],'AC 80 cm')")
 viewer=viewer.replace("90° opening: the handle/door intersects the wall; clearance revision required.","90° swing shown. Verify appliance clearances and access to the prep corner before approval.")
 viewer=viewer.replace("Left handle · right hinge · 25 mm nominal side clearance to wall","Entry-side refrigerator · right hinge · manufacturer clearances pending")
 viewer=viewer.replace("if(view==='fridge'||view==='plan')line([1.255,2.46,2.84],[2.055,2.46,2.84],'AC 80 cm');","")
@@ -17,7 +19,7 @@ viewer=viewer.replace("'Drawers 60'","'Storage'").replace("line([.60,.08,3.0],[1
 (p/'viewer-option2.mjs').write_text(viewer)
 html=(p/'index.html').read_text().replace('Kitchen Design Review','Option 2 — Window Sink')
 html=html.replace('height:min(65vw,680px)','height:min(55vh,620px)')
-html=html.replace('<button data-view="ac">AC Above Window</button>','').replace('Refrigerator &amp; Window','Refrigerator &amp; Entry')
+html=html.replace('AC Above Window','AC Above Entrance').replace('Refrigerator &amp; Window','Refrigerator &amp; Entry')
 html=html.replace('alex-kitchen.glb','kitchen-option2.glb').replace('dimensions-and-assumptions.md','option2-design-notes.md')
 start=html.index('<p class="door-status"')
 end=html.index('</main>',start)
@@ -40,6 +42,7 @@ html=html[:start]+'''<p class="note">Refrigerator moved to the entry corner. Dis
 <p class="note">Connected corner shelves and continuous worktops replace the former gaps. Inspect Corner Interiors to see the hollow storage. Left side access is approximately 240 mm; final access hardware and standing space require revision before fabrication.</p>
 <p class="note">The refrigerator projects approximately 140 mm beyond the entry return, accepted for this design study. Appliance ventilation and the raised microwave shelf still need installation checks.</p>'''+html[end:]
 html=html.replace('<button data-action="dims"','<button data-action="dw" aria-pressed="false">Open Dishwasher</button><button data-action="corners" aria-pressed="false">Corner Interiors</button><button data-action="dims"')
+html=html.replace('</main>','<p class="note">AC envelope above entrance: 800 × 270 × 210 mm, bottom 2050 mm. Assumed ceiling clearance 150 mm; actual kitchen height, entrance head and manufacturer clearances must be checked. Upper doors have one pull each; narrow corner connectors have none.</p></main>')
 (p/'option2.html').write_text(html)
 base=(p/'scene.mjs').read_text().replace("import * as THREE from './three.mjs';",'').replace('export function buildKitchen','function original')
 new=(p/'scene-option2.mjs').read_text().replace("import * as THREE from './three.mjs';",'').replace("import {buildKitchen as original} from './scene.mjs';",'').replace('export function buildKitchen','function buildKitchen')

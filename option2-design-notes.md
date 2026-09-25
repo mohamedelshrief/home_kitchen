@@ -22,6 +22,10 @@ The nominal aisle between the west and east 650 mm counters is 910 mm. Appliance
 
 ## Finish and remaining checks
 
+The 800 × 270 × 210 mm AC design envelope is centred above the west entrance at z=1075 mm. Its bottom is 2050 mm and top 2320 mm, leaving 150 mm to the assumed 2470 mm ceiling. The entrance head is temporarily represented at 2000 mm; neither this head height nor the kitchen ceiling is surveyed. Confirm the chosen unit's installation/service clearances and drain route. The west upper run starts at z=1600 mm, and the over-fridge upper is 600 mm deep to avoid physical overlap with the AC. The adjacent refrigerator and upper units still need a service-access review.
+
+Upper cabinetry remains white. Connectors up to 300 mm wide have no handles; regular doors each have one silver pull near the bottom edge. Two-door units use a central pair; single-door units use one edge pull. Lower cabinetry remains blue.
+
 Modern blue slab fronts, silver hardware, light stone countertops and white backsplash follow the latest reference image. Kitchen ceiling/window heights remain provisional. Check actual appliance installation clearances, microwave shelf support/ventilation, corner access and sink drainage levels before fabrication.
 
 ## Build

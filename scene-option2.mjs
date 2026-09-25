@@ -9,6 +9,13 @@ export function buildKitchen(){
  for(const o of [...groups.base.children])if(!keep.some(s=>o.name.startsWith(s)))groups.base.remove(o);
  for(const o of [...groups.upper.children])if(!o.name.startsWith('Stainless hood'))groups.upper.remove(o);
  groups.ac.clear();
+ // Design envelope only: actual unit, lintel height and service clearances need measurement.
+ const entryAc=new THREE.Group();entryAc.name='AC above entrance - 800 x 270 x 210 mm';entryAc.position.set(.105,0,1.075);entryAc.rotation.y=Math.PI/2;groups.ac.add(entryAc);
+ box(entryAc,'White indoor AC housing',0,2.185,0,.80,.27,.21,M.beige);
+ box(entryAc,'AC front fascia',0,2.205,.108,.76,.20,.012,M.beige);
+ box(entryAc,'AC outlet',0,2.075,.111,.67,.034,.014,M.black);
+ for(let i=0;i<3;i++)box(entryAc,'Outlet louvre',0,2.065+i*.011,.12,.65,.003,.01,M.silver);
+ box(entryAc,'AC indicator',.29,2.21,.117,.026,.008,.003,M.light);
  // Replace patterned mosaic with large, quiet stone panels. Source option stays unchanged.
  for(const side of ['north','east','south'])for(const o of [...groups[side].children])if(o.name==='Ice blue and silver glass mosaic')groups[side].remove(o);
  box(groups.north,'White stone backsplash',1.105,1.195,.015,2.21,.61,.018,M.stone);
@@ -20,6 +27,7 @@ export function buildKitchen(){
  for(const o of [...groups.detail.children])if(!o.name.startsWith('Sink ')&&o.name!=='Gooseneck tap'&&!o.name.startsWith('LG MH'))groups.detail.remove(o);
  // Surveyed west wall: 700 mm return, 750 mm opening, 1500 mm return.
  box(groups.west,'Entry north return 700 mm',-.055,1.235,.35,.11,2.47,.70,M.wall);
+ box(groups.west,'Provisional entrance lintel - head 2000 mm',-.055,2.235,1.075,.11,.47,.75,M.wall);
  const fridge=groups.base.children.find(o=>o.name.startsWith('Bosch KGN'));
  fridge.position.set(.40,0,.42);fridge.rotation.y=0;
  const dw=groups.base.children.find(o=>o.name.startsWith('Dishwasher bay'));
@@ -43,10 +51,16 @@ export function buildKitchen(){
  function cabinet(name,x,z,w,d,rot=0,drawers=false,lo=.15,hi=.85){
   const g=new THREE.Group();g.name=name;g.position.set(x,0,z);g.rotation.y=rot;groups[lo>1?'upper':'base'].add(g);const mat=lo>1?M.beige:M.blue;
   box(g,'Carcass',0,(lo+hi)/2,0,w,hi-lo,d,mat);
-  const count=drawers?3:2;
+  const upper=lo>1,connector=upper&&w<=.30;
+  const count=drawers?3:upper?(w<=.60?1:2):2;
   for(let i=0;i<count;i++){const fw=drawers?w-.012:w/count-.008,fh=drawers?(hi-lo)/3-.008:hi-lo-.01,fx=drawers?0:-w/2+(i+.5)*w/count,fy=drawers?lo+(i+.5)*(hi-lo)/3:(lo+hi)/2;
    box(g,'Panel',fx,fy,d/2+.012,fw,fh,.024,mat);
-   box(g,'Silver pull',fx,fy+.04,d/2+.059,drawers?.18:.012,drawers?.012:.13,.025,M.silver);
+   if(upper){
+    if(!connector){const hx=count===2?(i===0?-.042:.042):w/2-.05,hy=lo+.12;
+     box(g,'Upper silver pull',hx,hy,d/2+.065,.009,.128,.012,M.silver);
+     for(const offset of [-.055,.055])box(g,'Upper pull mounting',hx,hy+offset,d/2+.041,.009,.009,.04,M.silver);
+    }
+   }else box(g,'Silver pull',fx,fy+.04,d/2+.059,drawers?.18:.012,drawers?.012:.13,.025,M.silver);
   }
   if(lo<1)box(g,'Plinth',0,.075,-.03,w,.15,d-.08,M.ivoryEdge);
   else {box(g,'Flush top filler',0,hi+.03,0,w,.06,d,mat);box(g,'Under-cabinet LED',0,lo-.012,d/2-.025,w-.04,.012,.012,M.light);}
@@ -55,7 +69,7 @@ export function buildKitchen(){
  cabinet('Entry-side drawers 750',1.175,.315,.75,.63,0,true);
  cabinet('North east corner storage 660',1.88,.315,.66,.63);
  cabinet('East prep drawers 600',1.895,.95,.60,.63,-Math.PI/2,true);
- cabinet('West wall upper storage',.18,1.88,.84,.36,Math.PI/2,false,1.50,2.37);
+ cabinet('West wall upper storage',.18,1.95,.70,.36,Math.PI/2,false,1.50,2.37);
  // Real hollow connected corner volumes, rather than solid filler blocks.
  const corner=new THREE.Group();corner.name='Connected corner storage shells';groups.base.add(corner);
  const fronts=new THREE.Group();fronts.name='Corner access fronts';groups.base.add(fronts);model.cornerFronts=fronts;
@@ -91,7 +105,7 @@ export function buildKitchen(){
  top('Sink front rim',1.005,2.3425,.55,.085);
  top('Sink rear rim',1.005,2.8975,.55,.105);
  cabinet('Microwave wall storage',1.175,.18,.75,.36,0,false,1.85,2.37);
- cabinet('Over refrigerator storage',.40,.34,.80,.68,0,false,1.97,2.37);
+ cabinet('Over refrigerator storage',.40,.30,.80,.60,0,false,1.97,2.37);
  cabinet('North corner wall storage',1.89,.18,.62,.36,0,false,1.50,2.37);
  cabinet('Prep wall storage',2.02,.87,.50,.36,-Math.PI/2,false,1.50,2.37);
  cabinet('Window left wall storage',.56,2.77,1.08,.36,Math.PI,false,1.50,2.37);
@@ -110,5 +124,7 @@ export function buildKitchen(){
  root.userData.layout.dishwasherWall='west';root.userData.layout.dishwasherCentreZ=1.76;
  delete root.userData.layout.westStorage;root.userData.layout.nominalCounterAisle=.91;
  root.userData.notes=['Refrigerator moved into entry-side corner as requested; 840 mm depth projects approximately 140 mm beyond 700 mm entry return.','Dishwasher on west wall adjacent to the sink corner, using the same plumbing zone.','Connected hollow corner shelves and continuous worktops replace gaps; left corner side access is only about 240 mm and needs a practical joinery solution.','Dishwasher door opens into the aisle, away from the refrigerator; a standing-space compromise remains at the sink corner.','All connected corner access fronts can be hidden to inspect actual internal shelves.','Nominal aisle is 910 mm at the column and 910-1110 mm depending on appliance and cabinet section; not an accessibility-compliance claim.','Raised microwave installation and appliance manufacturer clearances remain unverified.'];
+ root.userData.layout.airConditioner={wall:'west, above entrance',width:.80,height:.27,depth:.21,centreZ:1.075,bottom:2.05,top:2.32,assumedCeilingGap:.15,assumedEntranceHead:2.00,assumedHeadGap:.05,status:'Design envelope; verify actual unit, lintel and installation clearances'};
+ root.userData.notes.push('AC centred above entrance, not window. Envelope 800 x 270 x 210 mm; bottom 2050 mm and top 2320 mm. Ceiling and entrance-head heights remain assumptions.','West upper run starts at z=1600 mm to clear AC end at 1475 mm by 125 mm. Over-fridge upper depth reduced to 600 mm to avoid intersecting AC. Near-side service access still needs selected-unit review.','Upper connectors 300 mm or narrower have no pulls. Regular doors have one silver pull each, aligned near their lower edge.');
  return model;
 }
