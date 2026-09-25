@@ -1,0 +1,48 @@
+{
+  "option": 2,
+  "units": "metres",
+  "room": {
+    "width": 2.21,
+    "length": 2.95,
+    "column": [
+      0.2,
+      0.7
+    ],
+    "entry": {
+      "northReturn": 0.7,
+      "opening": 0.75,
+      "southReturn": 1.5
+    }
+  },
+  "provisional": {
+    "ceiling": 2.47,
+    "windowSill": 1.45,
+    "windowHeight": 0.75
+  },
+  "layout": {
+    "fridgeBay": [
+      0,
+      0.8
+    ],
+    "fridgeDepth": 0.84,
+    "entryLandingWidth": 0,
+    "sinkCentre": 1.005,
+    "windowCentre": 1.655,
+    "sinkCabinetWidth": 0.75,
+    "dishwasherWall": "west",
+    "dishwasherCentreZ": 1.76,
+    "rangeCentreZ": 1.7,
+    "nominalCounterAisle": 0.91,
+    "microwaveShelfHeight": 1.235
+  },
+  "notes": [
+    "Refrigerator moved into entry-side corner as requested; 840 mm depth projects approximately 140 mm beyond 700 mm entry return.",
+    "Dishwasher on west wall adjacent to the sink corner, using the same plumbing zone.",
+    "Connected hollow corner shelves and continuous worktops replace gaps; left corner side access is only about 240 mm and needs a practical joinery solution.",
+    "Dishwasher door opens into the aisle, away from the refrigerator; a standing-space compromise remains at the sink corner.",
+    "All connected corner access fronts can be hidden to inspect actual internal shelves.",
+    "Nominal aisle is 910 mm at the column and 910-1110 mm depending on appliance and cabinet section; not an accessibility-compliance claim.",
+    "Raised microwave installation and appliance manufacturer clearances remain unverified."
+  ],
+  "revision": "Connected corners and sink-side dishwasher"
+}
